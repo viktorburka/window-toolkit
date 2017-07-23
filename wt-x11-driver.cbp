@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="wt-x11-driver" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/victor/Dev/playground/wt-x11-backend" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/victor/Dev/playground/wt-x11-backend" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="wt-x11-driver">
+         <Option output="/home/victor/Dev/playground/wt-x11-backend/wt-x11-driver" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/victor/Dev/playground/wt-x11-backend" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DGP_X11" />
+            <Add directory="/home/victor/Dev/freetype-2.7.1/include" />
+            <Add directory="/home/victor/Dev/freetype-2.7.1/include/freetype2" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/imageformats" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/interfaces" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 wt-x11-driver" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="wt-x11-driver/fast">
+         <Option output="/home/victor/Dev/playground/wt-x11-backend/wt-x11-driver" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/victor/Dev/playground/wt-x11-backend" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DGP_X11" />
+            <Add directory="/home/victor/Dev/freetype-2.7.1/include" />
+            <Add directory="/home/victor/Dev/freetype-2.7.1/include/freetype2" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/imageformats" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/interfaces" />
+            <Add directory="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 wt-x11-driver/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/victor/Dev/playground/wt-x11-backend/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/application.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/bindevent.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/display-x11.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/imageformats/image-png.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/imageformats/imageformatfactory.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/listview.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/main.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/paintbrush.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/application-x11.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/image-x11.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/paintbrush-x11.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/window-x11.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/pushbutton.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/rect.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/verification.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/widget.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wt-x11-driver.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wt.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtcolor.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtimage.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtlabel.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wttextedit.cpp">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/application.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/bindevent.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/display-x11.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/imageformats/image-png.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/imageformats/imageformatfactory.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/interfaces/imageformat.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/interfaces/platformapplication.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/interfaces/platformimage.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/interfaces/platformpaintbrush.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/interfaces/window.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/listview.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/paintbrush.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/application-x11.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/image-x11.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/paintbrush-x11.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/platforms/xlib/window-x11.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/pushbutton.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/rect.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/types.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/verification.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/widget.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wt-x11-driver.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wt.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtcolor.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtimage.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wtlabel.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/wttextedit.h">
+      </Unit>
+      <Unit filename="/home/victor/Dev/playground/wt-x11-backend/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

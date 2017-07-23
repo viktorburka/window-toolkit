@@ -1,0 +1,6 @@
+- Fix const std::string fontFile = "/home/victor/Dev/playground/wt-x11-backend/examples/Roboto-Regular.ttf";
+- Draw partial expose events. See 3.2.13.1 Repainting the Window;
+- Draw into a pixmap and then copy only a part of the pixmap based on the region of the expose event;
+- Forward declare std::string in wt.h
+- Remove hardcoded font. Use Fontinfo lib
+
