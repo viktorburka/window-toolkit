@@ -1,13 +1,12 @@
-cmake_minimum_required (VERSION 2.6)
-
-link_directories(
-    /home/victor/Dev/freetype-2.7.1/lib
-)
+cmake_minimum_required (VERSION 2.8)
 
 project (wt-x11-driver)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_VERBOSE_MAKEFILE ON)
+
+file(COPY examples/Roboto-Regular.ttf DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY examples/test.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(wt-x11-driver
                main.cpp
@@ -65,12 +64,10 @@ add_definitions(-DGP_X11)
 #add_definitions(-DVISUAL_DEBUG)
 
 target_include_directories(
-    wt-x11-driver PUBLIC
+  wt-x11-driver PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/platforms/xlib
   ${CMAKE_CURRENT_SOURCE_DIR}/interfaces
   ${CMAKE_CURRENT_SOURCE_DIR}/imageformats
-  /home/victor/Dev/freetype-2.7.1/include
-  /home/victor/Dev/freetype-2.7.1/include/freetype2
-#  /home/victor/Dev/libpng-1.6.29/include
+  /usr/include/freetype2
 )

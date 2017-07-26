@@ -11,10 +11,9 @@
 #include "window-x11.h"
 #endif
 
-#include <ft2build.h>
+#include <freetype2/ft2build.h>
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
-//#include <freetype/ftbitmap.h>
 
 using namespace Wt;
 
@@ -73,7 +72,7 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
 
     //auto TRUNC = [](int x) { return (x >> 6); };
 
-    const std::string fontFile = "/home/victor/Dev/playground/wt-x11-backend/examples/Roboto-Regular.ttf";
+    const std::string fontFile = "Roboto-Regular.ttf";
     const int pointSize = 48;
 
     FT_Library library     = 0;
@@ -153,7 +152,7 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
         char* imgData = (char*)malloc(width*height*4);
 
         for (int i = 0; i < width*height; ++i) {
-            char bgra[4]; bgra[0] = 0x00; bgra[1] = 0x00; bgra[2] = 0x00; bgra[3] = 0xFF;// = { 0x00, 0x00, 0x00, 0xFF };
+            char bgra[4]; bgra[0] = 0x00; bgra[1] = 0x00; bgra[2] = 0x00; bgra[3] = 0xFF;
             if (!*buffer) {
                 memcpy(bgra, background.bgra(), 3);
             }
@@ -164,10 +163,10 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
         WtImage image(face->glyph->bitmap.width,
                       face->glyph->bitmap.rows,
                       imgData);
-        drawImage(image, Rect(x /*+ face->glyph->bitmap_left*/, baselineY - face->glyph->bitmap_top,
+        drawImage(image, Rect(x, baselineY - face->glyph->bitmap_top,
                               image.width(), image.height()));
 
-        x += ((face->glyph->advance.x >> 6) /*+ face->glyph->bitmap_left*/);
+        x += (face->glyph->advance.x >> 6);
 
         free(imgData);
     }
