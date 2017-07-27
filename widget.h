@@ -14,8 +14,6 @@
 
 namespace Wt {
 
-//class Window;
-
 class Widget
 {
 public:
@@ -32,8 +30,6 @@ public:
     int height() const;
     int x() const;
     int y() const;
-
-//    Rect rect() const;
 
     int dpiX() const;
     int dpiY() const;
@@ -65,7 +61,6 @@ private:
     int     m_width, m_height;
     bool    m_visible;
 
-    //Window* m_platformWin;
     std::unique_ptr<Window> m_platformWin;
 
     Widget* m_parent;

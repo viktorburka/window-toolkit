@@ -15,6 +15,7 @@ ImageX11::ImageX11(int width, int height, char* data)
 
 ImageX11::~ImageX11()
 {
+    //TODO: properly destroy image
     //XDestroyImage(m_image);
 }
 

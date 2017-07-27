@@ -65,11 +65,6 @@ int errorHandler(Display *, XErrorEvent *)
 ApplicationX11::ApplicationX11()
     : m_running(false)
 {
-//    if (m_instance) {
-//        fprintf(stderr, "There can not be more than one instance of Application");
-//        exit(-1);
-//    }
-
     XSetErrorHandler(errorHandler);
 
     DisplayX11::display = XOpenDisplay(NULL); //TO-DO: read DISPLAY env variable
@@ -81,18 +76,6 @@ ApplicationX11::ApplicationX11()
     }
 
     DisplayX11::initWindowManager(DisplayX11::display);
-
-    int count;
-    char** fonts = XListFonts(DisplayX11::display, "*", INT32_MAX, &count);
-
-//    fprintf(stderr, "Available fonts count: %d\n", count);
-
-//    for(int i = 0; i < count; ++i)
-//        fprintf(stderr, "%s\n", fonts[i]);
-
-//    XFreeFontNames(fonts);
-
-//    fprintf(stderr, "Loading font ... \n");
 
     DisplayX11::fontInfo = XLoadQueryFont(DisplayX11::display, "9x15bold");
     if (!DisplayX11::fontInfo) {
@@ -115,11 +98,13 @@ void ApplicationX11::run()
 
     while (m_running) {
         XNextEvent(DisplayX11::display, &event);
+#ifdef VISUAL_DEBUG
         int eventType = (int)(event.xany.type);
-//        fprintf(stderr, "Event received. Type: %d, name: %s, window: %u\n",
-//                        eventType,
-//                        eventType > MaxEventNumber ? "Unknown" : eventNames[eventType],
-//                        (uint)(event.xany.window));
+        fprintf(stderr, "Event received. Type: %d, name: %s, window: %u\n",
+                         eventType,
+                         eventType > MaxEventNumber ? "Unknown" : eventNames[eventType],
+                        (uint)(event.xany.window));
+#endif
         auto it = m_windows.find(event.xany.window);
         if (it != m_windows.end()) {
             processEvent(&event, it->second);
@@ -129,11 +114,6 @@ void ApplicationX11::run()
         }
     }
 }
-
-//ApplicationX11* ApplicationX11::instance()
-//{
-//    return m_instance;
-//}
 
 void ApplicationX11::addWindow(Widget* widget)
 {
@@ -147,16 +127,15 @@ void ApplicationX11::leaveEventLoop()
 
 void ApplicationX11::processEvent(XEvent* event, Widget* widget)
 {
-    //fprintf(stderr, "Event: %d\n", event->type);
-
+#ifdef VISUAL_DEBUG
+    fprintf(stderr, "Event: %d\n", event->type);
+#endif
     switch (event->xany.type) {
     case Expose: {
         XExposeEvent ee = event->xexpose;
-        //if (ee.count == 0) { // ignoring queued up expose events
         widget->exposeEvent();
         widget->drawBackground(ee.x, ee.y, ee.width, ee.height);
         widget->drawEvent(ee.x, ee.y, ee.width, ee.height);
-        //}
         break;
     }
     case ConfigureNotify: {

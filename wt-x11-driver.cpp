@@ -24,9 +24,6 @@ void WtDriverWidget::drawEvent(int x, int y, int width, int height)
     int xc = this->width() - image.width();
     int yc = this->height() - image.height();
 
-    WtPrint() << image.width();
-    WtPrint() << image.height();
-
     pb.drawImage(image, Rect(xc, yc, image.width(), image.height()));
 
 //    WtImage generatedImage(w, h, data);

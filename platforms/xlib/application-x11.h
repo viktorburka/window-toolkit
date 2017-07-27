@@ -20,8 +20,6 @@ public:
 
     void run();
 
-    //static ApplicationX11* instance();
-
     void addWindow(Widget* widget);
 
 private:
@@ -30,7 +28,6 @@ private:
 
     bool                       m_running;
     std::map<WindowId,Widget*> m_windows;
-    //static ApplicationX11*     m_instance;
 };
 
 }

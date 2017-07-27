@@ -91,51 +91,6 @@ WindowX11::WindowX11(int width, int height)
     XSetWMProtocols(display, m_win, &DisplayX11::closeWinMsg, 1);
 }
 
-//WindowX11::WindowX11(int width, int height)
-//    : m_width(width)
-//    , m_height(height)
-//    , m_xpos(0)
-//    , m_ypos(0)
-//    , m_topLevel(true)
-//{
-//    Display* display = DisplayX11::currentDisplay();
-
-//    XVisualInfo vinfo;
-//    int status = XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &vinfo);
-//    WtPrint() << "status:" << status;
-
-//    XSetWindowAttributes attr;
-//    attr.colormap = XCreateColormap(display, DefaultRootWindow(display), vinfo.visual, AllocNone);
-//WtPrint() << "1";
-//    m_win = XCreateWindow(display, DefaultRootWindow(display),
-//                          m_xpos, m_ypos,
-//                          m_width, m_height,
-//                          0,
-//                          vinfo.depth,
-//                          InputOutput,
-//                          vinfo.visual,
-//                          CWColormap, &attr);
-
-//    if (!DisplayX11::currentGC()) {
-//        DisplayX11::gc = XCreateGC(display, m_win, 0, NULL);
-//        XSetFont(DisplayX11::display, DisplayX11::gc, DisplayX11::fontInfo->fid);
-//    }
-//WtPrint() << "2";
-//    XSelectInput(display, m_win, ExposureMask | StructureNotifyMask | ButtonPressMask | ButtonReleaseMask);
-//WtPrint() << "3";
-//    //XSetWMProtocols(display, m_win, &DisplayX11::closeWinMsg, 1);
-//WtPrint() << "4";
-//    int widthMM = DisplayWidthMM(display, DefaultScreen(display));
-//    int heightMM = DisplayHeightMM(display, DefaultScreen(display));
-
-//    int widthPx = DisplayWidth(display, DefaultScreen(display));
-//    int heightPx = DisplayHeight(display, DefaultScreen(display));
-
-//    m_dpix = round(widthPx * 25.4 / widthMM);
-//    m_dpiy = round(heightPx * 25.4 / heightMM);
-//WtPrint() << "5";
-//}
-
 void WindowX11::show()
 {
     Display* display = DisplayX11::display;
@@ -195,6 +150,6 @@ void WindowX11::repaint()
     event.width = m_width;
     event.height = m_height;
     event.count = 0;
-    //fprintf(stderr, "XSendEvent m_width: %d, m_height: %d\n", m_width, m_height);
+
     XSendEvent(display, m_win, true, ExposureMask,(XEvent *)&event);
 }

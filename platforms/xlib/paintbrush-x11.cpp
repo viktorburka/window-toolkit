@@ -42,7 +42,7 @@ void PaintBrushX11::setPaintColor(const std::string & colorName)
     XSetForeground(display, gc, xc.pixel);
 }
 
-void PaintBrushX11::drawText(const std::string & text)
+void PaintBrushX11::drawText(const std::string & /*text*/)
 {
 //    Display* display = DisplayX11::display;
 //    GC gc = DisplayX11::currentGC();

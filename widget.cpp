@@ -91,11 +91,6 @@ int Widget::y() const
     return m_y;
 }
 
-//Rect Widget::rect() const
-//{
-//    return Rect(m_x, m_y, m_width, m_height);
-//}
-
 int Widget::dpiX() const
 {
     return m_platformWin->dpiX();
@@ -162,5 +157,4 @@ void Widget::drawBackground(int x, int y, int width, int height)
     PaintBrush pb(this);
     pb.setPaintColor("LightGrey");
     pb.fillRect(x, y, width, height);
-    //fprintf(stderr, "x = %d, y = %d, width = %d, height = %d\n", x, y, width, height);
 }

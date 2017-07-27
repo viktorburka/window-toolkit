@@ -16,7 +16,6 @@ public:
     static Display* display;
     static GC gc;
     static Atom closeWinMsg;
-    //static Font font;
     static XFontStruct* fontInfo;
 };
 

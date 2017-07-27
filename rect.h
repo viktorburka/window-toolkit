@@ -40,7 +40,7 @@ private:
     int m_width;
     int m_height;
 
-// temp impl
+    // tempoprary implementation
     int* values;
 };
 

@@ -70,8 +70,6 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
         }
     };
 
-    //auto TRUNC = [](int x) { return (x >> 6); };
-
     const std::string fontFile = "Roboto-Regular.ttf";
     const int pointSize = 48;
 
@@ -122,31 +120,16 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
 
     for (int i = 0; i < text.size(); ++i) {
 
-        WtPrint() << "================";
-
         glyph_index = FT_Get_Char_Index(face, text[i]);
         error = FT_Load_Glyph(face, glyph_index,
                               FT_LOAD_DEFAULT);
         validate(error, "Error setting font size");
-
-//        FT_Pos left   = face->glyph->metrics.horiBearingX;
-//        FT_Pos right  = left + face->glyph->metrics.width;
-//        FT_Pos top    = face->glyph->metrics.horiBearingY;
-//        FT_Pos bottom = top - face->glyph->metrics.height;
-
-//        Rect glyphRect = Rect(TRUNC(left), -TRUNC(top) + 1,
-//                              TRUNC(right - left) + 1, TRUNC(top - bottom) + 1);
 
         error = FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL);
         validate(error, "Error rendering glyph");
 
         int width  = face->glyph->bitmap.width;
         int height = face->glyph->bitmap.rows;
-
-        WtPrint() << "Bitmap width:" << width;
-        WtPrint() << "Bitmap height:" << height;
-        WtPrint() << "face->glyph->advance.x" << face->glyph->advance.x/64;
-        WtPrint() << "face->glyph->bitmap_left" << face->glyph->bitmap_left;
 
         unsigned char* buffer = face->glyph->bitmap.buffer;
         char* imgData = (char*)malloc(width*height*4);
