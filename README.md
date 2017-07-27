@@ -42,5 +42,5 @@ make
 To run Window Toolkit demo app
 
 ```Shell
-./window-toolkit
+./wt-x11-driver
 ```
