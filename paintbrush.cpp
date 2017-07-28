@@ -17,6 +17,27 @@
 
 using namespace Wt;
 
+/*!
+    \class PaintBrush
+    \inmodule Wt
+
+    \brief The PaintBrush class implement platform independent drawing methods.
+
+    \ingroup widgets
+
+    PaintBrush provides a set of APIs to draw on a widgetsurface. It supports
+    veriety of basic drawing methods such as \a drawRect, \a drawText,
+    \a drawImage, etc.
+
+    PaintBrush can only be uses in a widget's \a drawEvent function. The user
+    should override that function in his own widget and instantiate PaintBrush
+    there calling appropriate drawing methods.
+*/
+
+/*!
+    Constructs PaintBrush instantiating appropriate platform dependent instance
+    for drawing.
+*/
 PaintBrush::PaintBrush(Widget* widget)
     : m_surface(widget)
 {
@@ -26,21 +47,33 @@ PaintBrush::PaintBrush(Widget* widget)
 #endif
 }
 
+/*!
+    Draws rectangle with the outline color preset in \a setPaintColor method.
+*/
 void PaintBrush::drawRect(const Rect & rect)
 {
     drawRect(rect.x(), rect.y(), rect.width(), rect.height());
 }
 
+/*!
+    Draws rectangle with the outline color preset in \a setPaintColor method.
+*/
 void PaintBrush::drawRect(int x, int y, int width, int height)
 {
     m_platformBrush->drawRect(x, y, width, height);
 }
 
+/*!
+    Fills rectangle with the color preset in \a setPaintColor method.
+*/
 void PaintBrush::fillRect(const Rect & rect)
 {
     fillRect(rect.x(), rect.y(), rect.width(), rect.height());
 }
 
+/*!
+    Fills rectangle with the color preset in \a setPaintColor method.
+*/
 void PaintBrush::fillRect(int x, int y, int width, int height)
 {
     int adjustedWidth = x + width >= m_surface->width() ? m_surface->width()-x : width;
@@ -49,16 +82,25 @@ void PaintBrush::fillRect(int x, int y, int width, int height)
     m_platformBrush->fillRect(x, y, adjustedWidth, adjustedHeight);
 }
 
+/*!
+    Sets outline or fill color for drawing primitives.
+*/
 void PaintBrush::setPaintColor(const std::string & colorName)
 {
     m_platformBrush->setPaintColor(colorName);
 }
 
+/*!
+    Draws text within \a rect boundary.
+*/
 void PaintBrush::drawText(const std::string & text, const Rect & rect)
 {
     m_platformBrush->drawText(text, rect);
 }
 
+/*!
+    Draws text with \a background color.
+*/
 void PaintBrush::drawText(const std::string & text, const WtColor & background)
 {
     auto validate = [](FT_Error error,
@@ -157,6 +199,9 @@ void PaintBrush::drawText(const std::string & text, const WtColor & background)
     FT_Done_Face(face);
 }
 
+/*!
+    Draws raster image.
+*/
 void PaintBrush::drawImage(const WtImage & image, const Rect & rect)
 {
     m_platformBrush->drawImage(image, rect);

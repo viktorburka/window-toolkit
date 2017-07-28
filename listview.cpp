@@ -115,13 +115,11 @@ void ListView::mousePressEvent(int x, int y, MouseButtons state)
             int scrollerHeight = m_sg.scrollerHeight(ItemHeight, m_items.size());
             m_scrollerOffset = (m_sg.scrollerAreaRect().height() - scrollerHeight) * m_viewOffset/m_maxViewOffset;
             repaint();
-            //WtPrint() << "Up, offset:" << m_viewOffset;
         } else if (m_sg.thumbDownRect().contains(x,y)) {
             m_viewOffset = Wt::boundary(m_viewOffset + ItemHeight/2, 0, m_maxViewOffset);
             int scrollerHeight = m_sg.scrollerHeight(ItemHeight, m_items.size());
             m_scrollerOffset = (m_sg.scrollerAreaRect().height() - scrollerHeight) * m_viewOffset/m_maxViewOffset;
             repaint();
-            //WtPrint() << "Down, offset:" << m_viewOffset;
         }
     }
 }
