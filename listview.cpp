@@ -7,33 +7,70 @@
 
 using namespace Wt;
 
+/*!
+    \class ListView
+    \inmodule Wt
+
+    \brief The ListView class represent scrollable list view widget.
+
+    \ingroup widgets
+
+    ListView widget displays a scrollable list of elements. If the
+    number of items by their height exceed ListView area, appropriate
+    scroll bar will be automatically added by the widget.
+
+    To add elements to ListView call \a setData function with a list
+    of strings to be displayed in each item of ListView.
+
+    To highlight an element in ListView call \a setSelectedIndex method
+    passing the index of desired element starting from 0.
+*/
+
 const int ItemHeight     = 30;
 const int ScrollBarWidth = 20;
 const int ThumbLength    = ScrollBarWidth - 4; // minux 2px on each side
 
+/*!
+    Constructs ListView widget taking \a parent widget as its container.
+*/
 ListView::ListView(Widget * parent)
     : Widget(parent)
     , m_index(-1)
 {
 }
 
+/*!
+    Sets a list of strings to be displayed in each item of ListView.
+
+    If ListView already contains data, it will be overwritten with
+    the new data.
+*/
 void ListView::setData(const std::list<std::string> & items)
 {
     m_items = items;
     repaint();
 }
 
+/*!
+    Returns highlighted item of ListView.
+*/
 int ListView::selectedIndex() const
 {
     return m_index;
 }
 
+/*!
+    Highlights ListView item by \a index starting from 0.
+*/
 void ListView::setSelectedIndex(int index)
 {
     m_index = index;
     repaint();
 }
 
+/*!
+    Draws the ListView widget on the screen by its coordinates.
+*/
 void ListView::drawEvent(int x, int y, int width, int height)
 {
     PaintBrush pb(this);
@@ -63,6 +100,10 @@ void ListView::drawEvent(int x, int y, int width, int height)
     }
 }
 
+/*!
+    Mouse press event handler. Highlights ListView item if left button
+    is clicked.
+*/
 void ListView::mousePressEvent(int x, int y, MouseButtons state)
 {
     if (state && LeftButton) {
@@ -85,12 +126,21 @@ void ListView::mousePressEvent(int x, int y, MouseButtons state)
     }
 }
 
+/*!
+    Mouse release event handler. By releasing the mouse button
+    the widget sends \a selectedItemChanged event notifying that
+    an item has been selected.
+*/
 void ListView::mouseReleaseEvent(int x, int y, MouseButtons state)
 {
     if (m_index != -1)
         sendEvent("selectedItemChanged");
 }
 
+/*!
+    Geometry change event handler. Causes the widget content to be
+    properly redrawn based on the new widget geometry
+*/
 void ListView::geometryChangeEvent(int x, int y, int width, int height)
 {
     int viewWidth = width - ScrollBarWidth;
@@ -112,6 +162,9 @@ void ListView::geometryChangeEvent(int x, int y, int width, int height)
     m_maxViewOffset    = totalHeight <= height ? 0 : (totalHeight - height);
 }
 
+/*!
+    Draws ListView scroll bar frame
+*/
 void ListView::drawScrollBarFrame(PaintBrush & pb, const Rect & rect) const
 {
     pb.setPaintColor("Light Steel Blue");
@@ -120,6 +173,10 @@ void ListView::drawScrollBarFrame(PaintBrush & pb, const Rect & rect) const
     pb.drawRect(rect);
 }
 
+/*!
+    Draws ListView scroll bar thumb element which is a clickable area on
+    scroll bar to scroll ListView up and down
+*/
 void ListView::drawThumb(PaintBrush & pb, const Rect & rect, bool up) const
 {
     pb.setPaintColor("Steel Blue");
@@ -128,6 +185,10 @@ void ListView::drawThumb(PaintBrush & pb, const Rect & rect, bool up) const
     pb.drawRect(rect);
 }
 
+/*!
+    Draws ListView scroll bar scroller indicating the relative position
+    of ListView content being scrolled
+*/
 void ListView::drawScroller(PaintBrush & pb, const Rect & rect) const
 {
     int scrollerHeight = m_sg.scrollerHeight(ItemHeight, m_items.size());
