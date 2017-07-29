@@ -1,5 +1,8 @@
 #include "verification.h"
 
+/*!
+    Convernience function to check display pointer.
+*/
 void check_display_x11(Display * display)
 {
     if (display == nullptr) {
@@ -8,6 +11,9 @@ void check_display_x11(Display * display)
     }
 }
 
+/*!
+    Convernience function to check graphics context.
+*/
 void check_gc_x11(GC gc)
 {
     if (gc == nullptr) {
@@ -16,6 +22,9 @@ void check_gc_x11(GC gc)
     }
 }
 
+/*!
+    Convernience function to check null pointer.
+*/
 void check_null_ptr(void* ptr)
 {
     if (ptr == nullptr)
