@@ -22,7 +22,6 @@ using namespace Wt;
     to its constructor like:
 
     \code Color red("red");
-
 */
 
 /*!

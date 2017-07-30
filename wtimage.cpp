@@ -21,6 +21,28 @@ char* x11rgba(char* rgba) {
 
 using namespace Wt;
 
+/*!
+    \class WtImage
+    \inmodule Wt
+
+    \brief The WtImage class implements operations with image bytes.
+
+    \ingroup widgets
+
+    WtImage is platform and format independent representation of an image
+    that allows direct access to its bytes. WtImage can take raster images
+    of different formats such as PNG etc and provide a unified API to
+    manipulated it. It also integrates to the platoform dependent display
+    system allowing to draw given image.
+
+    Loading encoded images with WtImage is as easy as:
+
+    \code WtImage image("picture.png");
+*/
+
+/*!
+    WtImage constructor. Takes path to image file as parameter.
+*/
 WtImage::WtImage(const std::string & filePath)
 {
     using std::string;
@@ -51,6 +73,10 @@ WtImage::WtImage(const std::string & filePath)
 #endif
 }
 
+/*!
+    WtImage constructor. Takes image size and raw image data
+    as parameter.
+*/
 WtImage::WtImage(int width, int height, char* data)
 {
 #ifdef GP_X11
