@@ -9,12 +9,24 @@ int w = 100;
 int h = 100;
 char* data = 0;
 
+/*!
+    WtDriverWidget is a class for testing WT widgets. It uses
+    different WT classes to demonstrate how to use them. It is
+    created as a top level window.
+*/
 
+/*!
+    WtDriverWidget constructor.
+*/
 WtDriverWidget::WtDriverWidget(int width, int height)
     : Widget(width, height)
 {
 }
 
+/*!
+    Draws WtDriverWidget. Implements drawing of a PNG image by
+    loading it from the disk drive first.
+*/
 void WtDriverWidget::drawEvent(int x, int y, int width, int height)
 {
     PaintBrush pb(this);
