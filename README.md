@@ -1,7 +1,5 @@
 # overview
-Window Toolkit is a C++ widgets toolkit.
-
-As simple as the following picture may look representing just a few of widgets of Window Toolkit, it takes a lot of time and implementation to get that core setup and wiring to get something displayed on the screen.
+Window Toolkit is a C++ widgets toolkit that provides some basic set of visual components rendered via various rendering engines.
 
 <img src="https://github.com/viktorburka/window-toolkit/raw/master/doc/readme-md/window-toolkit.png" width="640" height="480">
 
